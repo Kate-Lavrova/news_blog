@@ -1,5 +1,5 @@
 from django.contrib import admin
-from article.models import Article, Comments
+from article.models import Article, Comments, Blog_Settings
 # Register your models here.
 class ArticleInline(admin.StackedInline):
     model = Comments
@@ -11,3 +11,5 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ['article_date']
 
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Blog_Settings)
+

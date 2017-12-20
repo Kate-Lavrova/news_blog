@@ -27,11 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# #
-# TEMPLATE_DIRS = [
-#     'C:/Users/doca/PycharmProjects/lavnews/templatess'
-# ]
-# # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,7 +54,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 'C:/Users/doca/PycharmProjects/lavnews/templatess']
+                 'C:/Users/doca/PycharmProjects/lavnews/templatess',
+                 'C:/Users/doca/PycharmProjects/lavnews/article/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    ('static', 'C:/Users/doca/PycharmProjects/lavnews/static'),
+]

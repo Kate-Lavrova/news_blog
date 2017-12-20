@@ -1,3 +1,4 @@
+# coding: utf8
 from django.db import models
 
 # Create your models here.
@@ -13,5 +14,14 @@ class Article(models.Model):
 class Comments (models.Model):
     class Meta():
         db_table = "comments"
-    comments_text = models.TextField()
+    comments_text = models.TextField(verbose_name="Текст комментария")
     comments_article = models.ForeignKey(Article)
+
+
+
+
+
+class Blog_Settings (models.Model):
+    class Meta():
+        db_table = "Blog_Settings"
+    Blog_Settings_title = models.CharField(max_length=200)
