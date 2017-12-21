@@ -23,5 +23,6 @@ urlpatterns = [
 
    # url(r'^$',  include('article.urls')),
     url(r'^hi/',  include('article.urls')),
+    url(r'^auth/', include('loginsys.urls')),
     url(r'^', include('article.urls')),
 ]

@@ -1,23 +1,92 @@
 {% extends 'main.html' %}
 
 {% block article %}
-<h4>{{ article.Blog_Settings_title }}</h4>
-<h4>{{ article.article_date }}</h4>
+
+<h6>{{ article.article_date }}</h6>
 <h2>{{ article.article_title }}</h2>
 <p>{{ article.article_text }}</p>
 <hr>
-    <div class="large-offset-1 ">
-<p>Комментарии</p>
-{% for comment in comments %}
-    <p>{{ comment.comments_text }}</p>
-{% endfor %}
 
-    <form action="/articles/addcomment/{{ article.id }}/" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="button" value="Добавить комментарий">
+
+
+<!--_____________________________________________________________________________________________________ -->
+
+<div class="comment-start">
+<div class="comment-all">
+<div class="comments-app">
+  <h1>Комментарии</h1>
+
+  <!-- From -->
+  <div class="comment-form">
+    <!-- Comment Avatar -->
+    <div class="comment-avatar">
+      <img src="http://lorempixel.com/200/200/people">
+    </div>
+
+    <form action="/articles/addcomment/{{ article.id }}/" method="post" class="form" name="form">
+      {% csrf_token %}
+
+        <div class="form-row">
+       {{ form.comments_text }}
+      </div>
+
+
+
+      <div class="form-row">
+        <input
+               class="input"
+               placeholder="Email"
+               type="email">
+      </div>
+      <div class="form-row text-right">
+        <input
+               id="comment-anonymous"
+               type="checkbox">
+        <label for="comment-anonymous">Анонимно</label>
+      </div>
+      <div class="form-row">
+        <input type="submit" value="Добавить">
+      </div>
     </form>
+  </div>
 
+  <!-- Comments List -->
+  <div class="comments">
+    <!-- Comment -->
+
+    <!-- Comment - 1 -->
+    <div class="comment">
+      <!-- Comment Avatar -->
+      <div class="comment-avatar">
+        <img src="http://gravatar.com/avatar/412c0b0ec99008245d902e6ed0b264ee?s=80">
+      </div>
+
+      <!-- Comment Box -->
+      <div class="comment-box">
+          {% for comment in comments %}
+        <div class="comment-text">{{ comment.comments_text }}</div>
+          {% endfor %}
+        <div class="comment-footer">
+          <div class="comment-info">
+            <span class="comment-author">
+              <a href="/">Макс</a>
+            </span>
+            <span class="comment-date">14 декабря 2017 г. 15:25</span>
+          </div>
+          <div class="comment-actions">
+            <a href="#">ответить</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+</div>
+</div>
+<!--_____________________________________________________________________________________________________ -->
+
+
+
 {% endblock %}
 

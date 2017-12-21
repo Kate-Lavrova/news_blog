@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# #
+# TEMPLATE_DIRS = [
+#     'C:/Users/doca/PycharmProjects/lavnews/templatess'
+# ]
+# # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +61,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
                  'C:/Users/doca/PycharmProjects/lavnews/templatess',
-                 'C:/Users/doca/PycharmProjects/lavnews/article/templates']
+                 'C:/Users/doca/PycharmProjects/lavnews/article/templates',
+                 'C:/Users/doca/PycharmProjects/lavnews/loginsys/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

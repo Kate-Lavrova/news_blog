@@ -4,13 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static "static/mycss.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "static/log.css" %}">
 
 </head>
+
+<header>
+
+
+
+<div id="header-login">
+  <div id="header-login-regbar">
+    <div id="header-login-navthing">
+        {% if username %}
+
+
+            <h2>({{ username }}) | <a href="/auth/logout/">Выйти</a></h2>
+
+        {% else %}
+        <h2><a href="/auth/login/">Войти</a> | <a href="#">Регистрация</a></h2>
+        {% endif %}
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="logo-all">
+    <div class="logo-container">
+        <div class="logo">
+            <span class="logo-left"><</span><a href="/">News blog</a><span class="logo-right">/></span>
+            <div class="logo-subtext">
+                <span class="logo-first-part">no</span><span class="logo-second-part"> comments</span>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+</header>
 <body>
-<h1><a href="/"> Мой блог</a></h1>
 <div class="grid-container">
 {% block article %}{% endblock %}
 </div>
+{% block login %}{% endblock %}
+
+
 </body>
+
+
 </html>
+
